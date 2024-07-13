@@ -12,30 +12,6 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentSubscriptionServiceProvider extends PackageServiceProvider
 {
-    public function boot(): void
-    {
-        if ($this->app->runningInConsole()) {
-            $this->publishes(
-                [
-                    __DIR__ . "/../resources/svg" => public_path(
-                        "vendor/ecoleplus-subs-icon"
-                    ),
-                ],
-                "ecoleplus-subs-icon"
-            );
-
-            $this->publishes(
-                [
-                    __DIR__ .
-                    "/../config/ecoleplus-subs-icon.php" => $this->app->configPath(
-                        "ecoleplus-subs-icon.php"
-                    ),
-                ],
-                "ecoleplus-subs-icon-config"
-            );
-        }
-        parent::boot();
-    }
     public function configurePackage(Package $package): void
     {
         /*
@@ -86,8 +62,9 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void
+    public function register(): void
     {
+        parent::register();
         $this->registerConfig();
 
         $this->callAfterResolving(Factory::class, function (
