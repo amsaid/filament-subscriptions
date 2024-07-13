@@ -2,10 +2,10 @@
 
 namespace EcolePlus\FilamentSubscription\Resources\PlanResource\Pages;
 
+use EcolePlus\FilamentSubscription\Resources\PlanResource;
 use Filament\Actions;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
-use EcolePlus\FilamentSubscription\Resources\PlanResource;
 
 class ListPlans extends ListRecords
 {
@@ -14,12 +14,12 @@ class ListPlans extends ListRecords
     protected function getActions(): array
     {
         return [
-            Action::make("features")
-                ->label(__("ui.features"))
-                ->url(route("filament.admin.resources.features.index"))
-                ->color("success")
-                ->icon("heroicon-o-rectangle-stack"),
-            Actions\CreateAction::make()->icon("heroicon-o-rectangle-stack"),
+            Action::make('features')
+                ->label(__('ui.features'))
+                ->url(route('filament.admin.resources.features.index'))
+                ->color('success')
+                ->icon('heroicon-o-rectangle-stack'),
+            Actions\CreateAction::make()->icon('heroicon-o-rectangle-stack'),
         ];
     }
 }

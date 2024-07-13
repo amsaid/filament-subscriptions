@@ -9,5 +9,5 @@ class PlanFeature extends Model
 {
     use HasFactory;
 
-    protected $table = "filament_plan_features";
+    protected $table = 'filament_plan_features';
 }

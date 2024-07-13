@@ -6,13 +6,13 @@ use Illuminate\Console\Command;
 
 class FilamentSubscriptionCommand extends Command
 {
-    public $signature = "filament-subscriptions";
+    public $signature = 'filament-subscriptions';
 
-    public $description = "My command";
+    public $description = 'My command';
 
     public function handle(): int
     {
-        $this->comment("All done");
+        $this->comment('All done');
 
         return self::SUCCESS;
     }

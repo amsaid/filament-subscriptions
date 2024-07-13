@@ -16,37 +16,37 @@ trait PlanSubscriptions
     {
         return $this->morphMany(
             PlanSubscription::class,
-            "subscriber",
-            "subscriber_type",
-            "subscriber_id"
+            'subscriber',
+            'subscriber_type',
+            'subscriber_id'
         );
     }
 
     public function newSubscription(Plan $plan): PlanSubscription
     {
         $period = match ($plan->period) {
-            Period::Yearly->name => new CalculateTime("Yearly"),
-            Period::Monthly->name => new CalculateTime("Monthly"),
-            Period::Trial->name => new CalculateTime("Trial"),
-            default => new CalculateTime("Trial"),
+            Period::Yearly->name => new CalculateTime('Yearly'),
+            Period::Monthly->name => new CalculateTime('Monthly'),
+            Period::Trial->name => new CalculateTime('Trial'),
+            default => new CalculateTime('Trial'),
         };
 
         return $this->planSubscriptions()->create([
-            "name" => $plan->name,
-            "slug" => $plan->slug,
-            "description" => $plan->description,
-            "price" => $plan->price,
-            "trial_ends_at" => $period->getTrialEndsAt(),
-            "starts_at" => $period->startsAt(),
-            "ends_at" => $period->endsAt(),
-            "timezone" => "",
-            "plan_id" => $plan->id,
+            'name' => $plan->name,
+            'slug' => $plan->slug,
+            'description' => $plan->description,
+            'price' => $plan->price,
+            'trial_ends_at' => $period->getTrialEndsAt(),
+            'starts_at' => $period->startsAt(),
+            'ends_at' => $period->endsAt(),
+            'timezone' => '',
+            'plan_id' => $plan->id,
         ]);
     }
 
     public function planSubscription($slug): PlanSubscription
     {
-        return $this->planSubscriptions()->where("slug", $slug)->first();
+        return $this->planSubscriptions()->where('slug', $slug)->first();
     }
 
     public function subscription(): PlanSubscription
@@ -67,7 +67,7 @@ trait PlanSubscriptions
     public function hasSubscribedTo($plan_id): bool
     {
         $subscription = $this->planSubscriptions()
-            ->where("plan_id", $plan_id)
+            ->where('plan_id', $plan_id)
             ->latest()
             ->first();
         if ($subscription && $subscription->active()) {
@@ -84,8 +84,8 @@ trait PlanSubscriptions
 
     public function hasFeature($plan_id, $feature_id): bool
     {
-        $feature = PlanFeature::where("plan_id", $plan_id)
-            ->where("feature_id", $feature_id)
+        $feature = PlanFeature::where('plan_id', $plan_id)
+            ->where('feature_id', $feature_id)
             ->first();
         if ($feature) {
             return true;
@@ -96,7 +96,7 @@ trait PlanSubscriptions
 
     public function getFeatureIdBySlug($slug): int
     {
-        $feature = Feature::where("slug", $slug)->first();
+        $feature = Feature::where('slug', $slug)->first();
 
         return $feature ? $feature->id : 0;
     }

@@ -2,9 +2,9 @@
 
 namespace EcolePlus\FilamentSubscription\Resources\PlanResource\Pages;
 
+use EcolePlus\FilamentSubscription\Resources\PlanResource;
 use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
-use EcolePlus\FilamentSubscription\Resources\PlanResource;
 
 class CreatePlan extends CreateRecord
 {

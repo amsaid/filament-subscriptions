@@ -2,14 +2,14 @@
 
 namespace EcolePlus\FilamentSubscription;
 
-use Filament\Contracts\Plugin;
-use Filament\Panel;
 use EcolePlus\FilamentSubscription\Pages\ManageSubscriptionPage;
 use EcolePlus\FilamentSubscription\Pages\PlansPage;
 use EcolePlus\FilamentSubscription\Resources\FeatureResource;
 use EcolePlus\FilamentSubscription\Resources\PlanResource;
 use EcolePlus\FilamentSubscription\Resources\PlanSubscriptionsResource;
 use EcolePlus\FilamentSubscription\Widgets\SubscriptionsOverview;
+use Filament\Contracts\Plugin;
+use Filament\Panel;
 
 class FilamentSubscriptionPlugin implements Plugin
 {
@@ -20,7 +20,7 @@ class FilamentSubscriptionPlugin implements Plugin
 
     public function getId(): string
     {
-        return "filament-subscriptions";
+        return 'filament-subscriptions';
     }
 
     public function register(Panel $panel): void

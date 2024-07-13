@@ -2,11 +2,11 @@
 
 namespace EcolePlus\FilamentSubscription\Resources\PlanSubscriptionsResource\Pages;
 
-use Filament\Actions\Action;
-use Filament\Resources\Pages\ManageRecords;
 use EcolePlus\FilamentSubscription\Models\PlanSubscription;
 use EcolePlus\FilamentSubscription\Resources\PlanSubscriptionsResource;
 use EcolePlus\FilamentSubscription\Widgets\SubscriptionsOverview;
+use Filament\Actions\Action;
+use Filament\Resources\Pages\ManageRecords;
 use Illuminate\Database\Eloquent\Builder;
 
 class ManagePlanSubscriptions extends ManageRecords
@@ -16,16 +16,16 @@ class ManagePlanSubscriptions extends ManageRecords
     protected function getActions(): array
     {
         return [
-            Action::make("plans")
-                ->label(__("ui.plans"))
-                ->url(route("filament.admin.resources.plans.index"))
-                ->color("success")
-                ->icon("heroicon-o-rectangle-stack"),
-            Action::make("features")
-                ->label(__("ui.features"))
-                ->url(route("filament.admin.resources.features.index"))
-                ->color("success")
-                ->icon("heroicon-o-rectangle-stack"),
+            Action::make('plans')
+                ->label(__('ui.plans'))
+                ->url(route('filament.admin.resources.plans.index'))
+                ->color('success')
+                ->icon('heroicon-o-rectangle-stack'),
+            Action::make('features')
+                ->label(__('ui.features'))
+                ->url(route('filament.admin.resources.features.index'))
+                ->color('success')
+                ->icon('heroicon-o-rectangle-stack'),
         ];
     }
 

@@ -2,6 +2,10 @@
 
 namespace EcolePlus\FilamentSubscription\Resources;
 
+use EcolePlus\FilamentSubscription\Models\Currency;
+use EcolePlus\FilamentSubscription\Models\Feature;
+use EcolePlus\FilamentSubscription\Models\Plan;
+use EcolePlus\FilamentSubscription\Resources\PlanResource\Pages;
 use Filament\Forms;
 use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\FileUpload;
@@ -18,10 +22,6 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use EcolePlus\FilamentSubscription\Models\Currency;
-use EcolePlus\FilamentSubscription\Models\Feature;
-use EcolePlus\FilamentSubscription\Models\Plan;
-use EcolePlus\FilamentSubscription\Resources\PlanResource\Pages;
 use Illuminate\Database\Eloquent\Builder;
 use Str;
 

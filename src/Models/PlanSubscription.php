@@ -11,60 +11,60 @@ class PlanSubscription extends Model
 {
     use HasFactory;
 
-    protected $table = "filament_plan_subscriptions";
+    protected $table = 'filament_plan_subscriptions';
 
     protected $fillable = [
-        "name",
-        "slug",
-        "description",
-        "price",
-        "period",
-        "trial_ends_at",
-        "starts_at",
-        "ends_at",
-        "cancels_at",
-        "canceled_at",
-        "timezone",
-        "saw_it",
-        "is_paid",
-        "is_selected",
-        "plan_id",
+        'name',
+        'slug',
+        'description',
+        'price',
+        'period',
+        'trial_ends_at',
+        'starts_at',
+        'ends_at',
+        'cancels_at',
+        'canceled_at',
+        'timezone',
+        'saw_it',
+        'is_paid',
+        'is_selected',
+        'plan_id',
     ];
 
-    protected $appends = ["canceled", "trial_ends"];
+    protected $appends = ['canceled', 'trial_ends'];
 
     protected $attributes = [
-        "is_selected" => true,
+        'is_selected' => true,
     ];
 
     public function subscriber(): MorphTo
     {
         return $this->morphTo(
-            "subscriber",
-            "subscriber_type",
-            "subscriber_id",
-            "id"
+            'subscriber',
+            'subscriber_type',
+            'subscriber_id',
+            'id'
         );
     }
 
     public function plan()
     {
-        return $this->belongsTo(Plan::class, "plan_id");
+        return $this->belongsTo(Plan::class, 'plan_id');
     }
 
     public function scopePaid($query)
     {
-        return $query->where("is_paid", true);
+        return $query->where('is_paid', true);
     }
 
     public function scopeUnPaid($query)
     {
-        return $query->where("is_paid", false);
+        return $query->where('is_paid', false);
     }
 
     public function scopeTrial($query)
     {
-        return $query->where("period", "Trial");
+        return $query->where('period', 'Trial');
     }
 
     public function getCanceledAttribute(): bool
@@ -74,7 +74,7 @@ class PlanSubscription extends Model
 
     public function getTrialEndsAttribute(): bool
     {
-        return !$this->onFreeSubscription();
+        return ! $this->onFreeSubscription();
     }
 
     public function cancellation(): void
@@ -86,24 +86,24 @@ class PlanSubscription extends Model
     public function planState(): string
     {
         if ($this->active()) {
-            return "Actived";
+            return 'Actived';
         }
 
         if ($this->canceled()) {
-            return "Canceled";
+            return 'Canceled';
         }
 
         if ($this->expired()) {
-            return "Expired";
+            return 'Expired';
         }
 
-        return "Canceled";
+        return 'Canceled';
     }
 
     public function active(): bool
     {
-        return (!$this->expired() || $this->onFreeSubscription()) &&
-            !$this->canceled();
+        return (! $this->expired() || $this->onFreeSubscription()) &&
+            ! $this->canceled();
     }
 
     public function canceled(): bool

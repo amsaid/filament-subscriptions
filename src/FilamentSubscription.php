@@ -2,6 +2,4 @@
 
 namespace EcolePlus\FilamentSubscription;
 
-class FilamentSubscription
-{
-}
+class FilamentSubscription {}

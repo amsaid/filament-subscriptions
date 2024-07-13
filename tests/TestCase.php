@@ -2,9 +2,9 @@
 
 namespace EcolePlus\FilamentSubscription\Tests;
 
+use EcolePlus\FilamentSubscription\FilamentSubscriptionServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use EcolePlus\FilamentSubscription\FilamentSubscriptionServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,11 +13,11 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn(
+            fn (
                 string $modelName
-            ) => "EcolePlus\\FilamentSubscription\\Database\\Factories\\" .
-                class_basename($modelName) .
-                "Factory"
+            ) => 'EcolePlus\\FilamentSubscription\\Database\\Factories\\'.
+                class_basename($modelName).
+                'Factory'
         );
     }
 
@@ -28,7 +28,7 @@ class TestCase extends Orchestra
 
     public function getEnvironmentSetUp($app)
     {
-        config()->set("database.default", "testing");
+        config()->set('database.default', 'testing');
 
         /*
         $migration = include __DIR__.'/../database/migrations/create_filament-subscriptions_table.php.stub';

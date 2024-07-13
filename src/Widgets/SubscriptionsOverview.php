@@ -3,11 +3,11 @@
 namespace EcolePlus\FilamentSubscription\Widgets;
 
 use Carbon\Carbon;
+use EcolePlus\FilamentSubscription\Models\PlanSubscription;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
-use EcolePlus\FilamentSubscription\Models\PlanSubscription;
 
 class SubscriptionsOverview extends BaseWidget
 {
