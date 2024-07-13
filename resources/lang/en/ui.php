@@ -56,4 +56,11 @@ return [
     "reset" => "Reset",
     "apply" => "Apply",
     "clear" => "Clear",
+    "profit_today" => "Profit Today",
+    "profit_last_week" => "Profit Last Week",
+    "profit_this_month" => "Profit This Month",
+    "profit_last_month" => "Profit Last Month",
+    "profit_this_year" => "Profit This Year",
+    "profit_last_year" => "Profit Last Year",
+    "profit_all_time" => "Profit All Time",
 ];
