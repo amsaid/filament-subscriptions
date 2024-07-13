@@ -64,7 +64,7 @@ You can use the trait in any model you want as long as you have set the `model` 
 ```bash
 composer test
 ```
-
+## Contributing
 
 ## Credits
 
