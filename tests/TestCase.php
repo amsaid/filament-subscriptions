@@ -2,9 +2,9 @@
 
 namespace EcolePlus\FilamentSubscription\Tests;
 
-use EcolePlus\FilamentSubscription\FilamentSubscriptionServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
+use EcolePlus\FilamentSubscription\FilamentSubscriptionServiceProvider;
 
 class TestCase extends Orchestra
 {
