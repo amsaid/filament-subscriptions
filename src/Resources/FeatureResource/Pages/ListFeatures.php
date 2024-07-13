@@ -14,12 +14,12 @@ class ListFeatures extends ListRecords
     protected function getActions(): array
     {
         return [
-            Action::make('plans')
-                ->label(__('ui.plans'))
-                ->url(route('filament.admin.resources.plans.index'))
-                ->color('success')
-                ->icon('heroicon-o-rectangle-stack'),
-            Actions\CreateAction::make()->icon('heroicon-o-rectangle-stack'),
+            Action::make("plans")
+                ->label(__("filament-subscriptions::ui.plans"))
+                ->url(route("filament.admin.resources.plans.index"))
+                ->color("success")
+                ->icon("heroicon-o-rectangle-stack"),
+            Actions\CreateAction::make()->icon("heroicon-o-rectangle-stack"),
         ];
     }
 }

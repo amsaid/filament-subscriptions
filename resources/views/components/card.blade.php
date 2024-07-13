@@ -23,7 +23,7 @@
                     'bg-gray-600' => $isTrial,
                     'bg-primary-600' => ! $isTrial,
                     ])>
-                    @if($isTrial) {{ __('ui.free') }} @else {{ __('ui.paid') }} @endif
+                    @if($isTrial) {{ __('filament-subscriptions::ui.free') }} @else {{ __('filament-subscriptions::ui.paid') }} @endif
                 </a>
             </div>
             <div class='w-32 rounded-full shadow-3xl flex justify-center items-center'>

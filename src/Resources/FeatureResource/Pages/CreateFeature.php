@@ -13,11 +13,11 @@ class CreateFeature extends CreateRecord
     protected function getActions(): array
     {
         return [
-            Action::make('features')
-                ->label(__('ui.features'))
-                ->url(route('filament.admin.resources.features.index'))
-                ->color('success')
-                ->icon('heroicon-o-rectangle-stack'),
+            Action::make("features")
+                ->label(__("filament-subscriptions::ui.features"))
+                ->url(route("filament.admin.resources.features.index"))
+                ->color("success")
+                ->icon("heroicon-o-rectangle-stack"),
         ];
     }
 }

@@ -42,16 +42,16 @@
                             'text-white' => $hasSubscribedTo,
                             'text-md' => ! $hasSubscribedTo
                         ])>
-                        {{ __('ui.plan_include') }}
+                        {{ __('filament-subscriptions::ui.plan_include') }}
                     </p>
                     <ul class="text-sm w-full py-3">
                         @foreach ($features as $feature)
                             @php
                                 $status = auth()->user()->hasFeature($plan->id,$feature->id);
                             @endphp
-                            <x-filament-subscriptions::feature 
-                                :selected="$hasSubscribedTo" 
-                                :status="$status" 
+                            <x-filament-subscriptions::feature
+                                :selected="$hasSubscribedTo"
+                                :status="$status"
                                 :name="$feature->name"
                             />
                         @endforeach
@@ -69,7 +69,7 @@
                             ])
                             disabled
                             >
-                            {{ __('ui.currently_active') }}
+                            {{ __('filament-subscriptions::ui.currently_active') }}
                         </button>
                     @elseif(!$hasSubscribedTo && !$hasSubscribedToTrial)
                         <button type="button" @class([
@@ -77,7 +77,7 @@
                             ])
                             wire:click="switchPlan({{ $plan->id }})"
                             >
-                            {{ __('ui.switch_plan') }}
+                            {{ __('filament-subscriptions::ui.switch_plan') }}
                         </button>
                     @else
                         <button type="button" @class([
@@ -85,7 +85,7 @@
                             ])
                             disabled
                             >
-                            {{ __('ui.allready_used') }}
+                            {{ __('filament-subscriptions::ui.allready_used') }}
                         </button>
                     @endif
                 </div>
@@ -95,7 +95,7 @@
         <div class="fi-section rounded-xl w-full justify-center bg-white shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10">
             <div class="fi-ta-empty-state-content mx-auto grid max-w-lg justify-items-center text-center">
                 <div class="p-5">
-                    <h2 class="mx-auto">{{ __('ui.no_plan_found') }}</h2>
+                    <h2 class="mx-auto">{{ __('filament-subscriptions::ui.no_plan_found') }}</h2>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="250" height="250">
                         <path fill="#D17A00" d="M10 7H38V14H10z" />
                         <path fill="#8A5100" d="M10 21L6 21 6 13 10 7zM38 21L42 21 42 13 38 7z" />

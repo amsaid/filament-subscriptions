@@ -94,7 +94,7 @@ class ManageSubscriptionPage extends Page
                     $this->name;
             } else {
                 $this->message = __(
-                    "ui.your_plan_subscription_has_created_successfully"
+                    "filament-subscriptions::ui.your_plan_subscription_has_created_successfully"
                 );
             }
         }
