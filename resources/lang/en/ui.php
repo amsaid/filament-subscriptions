@@ -63,4 +63,5 @@ return [
     "profit_this_year" => "Profit This Year",
     "profit_last_year" => "Profit Last Year",
     "profit_all_time" => "Profit All Time",
+    "no_plan_found" => "No Plan Found",
 ];
