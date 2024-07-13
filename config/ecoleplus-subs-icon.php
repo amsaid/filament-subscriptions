@@ -12,7 +12,7 @@ return [
     |
     */
 
-    "prefix" => "ecoleplus-subs-icon",
+    "prefix" => "ecoleplusicon",
     /*
     |-----------------------------------------------------------------
     | Fallback Icon
