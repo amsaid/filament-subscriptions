@@ -2,13 +2,13 @@
 
 namespace EcolePlus\FilamentSubscription;
 
+use BladeUI\Icons\Factory;
 use EcolePlus\FilamentSubscription\Commands\FilamentSubscriptionCommand;
 use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
+use Illuminate\Contracts\Container\Container;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use BladeUI\Icons\Factory;
-use Illuminate\Contracts\Container\Container;
 
 class FilamentSubscriptionServiceProvider extends PackageServiceProvider
 {
@@ -18,14 +18,15 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
             Factory $factory,
             Container $container
         ) {
-            $config = $container->make("config")->get("blade-heroicons", []);
+            $config = $container->make('config')->get('blade-heroicons', []);
 
             $factory->add(
-                "icon",
-                array_merge(["path" => __DIR__ . "/../resources/svg"], $config)
+                'icon',
+                array_merge(['path' => __DIR__.'/../resources/svg'], $config)
             );
         });
     }
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -34,11 +35,11 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name("filament-subscriptions")
+            ->name('filament-subscriptions')
             ->hasTranslations()
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration("create_filament_subscriptions_table")
+            ->hasMigration('create_filament_subscriptions_table')
             ->hasCommand(FilamentSubscriptionCommand::class);
     }
 
@@ -47,11 +48,11 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
         FilamentAsset::register(
             [
                 Css::make(
-                    "filament-subscriptions-tailwindcss-styles",
-                    __DIR__ . "/../dist/css/style.css"
+                    'filament-subscriptions-tailwindcss-styles',
+                    __DIR__.'/../dist/css/style.css'
                 ),
             ],
-            "filament-subscriptions"
+            'filament-subscriptions'
         );
     }
 }
