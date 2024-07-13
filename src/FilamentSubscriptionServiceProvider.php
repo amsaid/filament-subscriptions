@@ -20,11 +20,11 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name("filament-subscriptions")
+            ->name('filament-subscriptions')
             ->hasTranslations()
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration("create_filament_subscriptions_table")
+            ->hasMigration('create_filament_subscriptions_table')
             ->hasCommand(FilamentSubscriptionCommand::class);
     }
 
@@ -33,31 +33,31 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
         FilamentAsset::register(
             [
                 Css::make(
-                    "filament-subscriptions-tailwindcss-styles",
-                    __DIR__ . "/../dist/css/style.css"
+                    'filament-subscriptions-tailwindcss-styles',
+                    __DIR__.'/../dist/css/style.css'
                 ),
             ],
-            "filament-subscriptions"
+            'filament-subscriptions'
         );
 
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [
-                    __DIR__ . "/../resources/svg" => public_path(
-                        "vendor/ecoleplus-subs-icon"
+                    __DIR__.'/../resources/svg' => public_path(
+                        'vendor/ecoleplus-subs-icon'
                     ),
                 ],
-                "ecoleplus-subs-icon"
+                'ecoleplus-subs-icon'
             );
 
             $this->publishes(
                 [
-                    __DIR__ .
-                    "/../config/ecoleplus-subs-icon.php" => $this->app->configPath(
-                        "ecoleplus-subs-icon.php"
+                    __DIR__.
+                    '/../config/ecoleplus-subs-icon.php' => $this->app->configPath(
+                        'ecoleplus-subs-icon.php'
                     ),
                 ],
-                "ecoleplus-subs-icon-config"
+                'ecoleplus-subs-icon-config'
             );
         }
     }
@@ -71,12 +71,12 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
             Container $container
         ) {
             $config = $container
-                ->make("config")
-                ->get("ecoleplus-subs-icon", []);
+                ->make('config')
+                ->get('ecoleplus-subs-icon', []);
 
             $factory->add(
-                "ecoleplus-subs-icon",
-                array_merge(["path" => __DIR__ . "/../resources/svg"], $config)
+                'ecoleplus-subs-icon',
+                array_merge(['path' => __DIR__.'/../resources/svg'], $config)
             );
         });
     }
@@ -84,8 +84,8 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
     private function registerConfig(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . "/../config/ecoleplus-subs-icon.php",
-            "ecoleplus-subs-icon"
+            __DIR__.'/../config/ecoleplus-subs-icon.php',
+            'ecoleplus-subs-icon'
         );
     }
 }
