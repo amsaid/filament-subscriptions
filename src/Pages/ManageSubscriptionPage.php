@@ -10,9 +10,9 @@ use Filament\Pages\Page;
 
 class ManageSubscriptionPage extends Page
 {
-    protected static ?string $navigationIcon = 'icon-subscription';
+    protected static ?string $navigationIcon = "ecoleplus-subs-icon-subscription";
 
-    protected static string $view = 'filament-subscriptions::pages.manage-subscription-page';
+    protected static string $view = "filament-subscriptions::pages.manage-subscription-page";
 
     public $subscription_id;
 
@@ -50,7 +50,7 @@ class ManageSubscriptionPage extends Page
 
     public function getAllSubscriptions()
     {
-        $this->subscriptions = app(config('filament-subscriptions.model'))
+        $this->subscriptions = app(config("filament-subscriptions.model"))
             ->planSubscriptions()
             ->latest()
             ->get();
@@ -58,17 +58,17 @@ class ManageSubscriptionPage extends Page
 
     public static function getNavigationGroup(): ?string
     {
-        return __('ui.manage_subscriptions');
+        return __("ui.manage_subscriptions");
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('ui.manage_subscriptions');
+        return __("ui.manage_subscriptions");
     }
 
     public function getSubscribedPlan()
     {
-        $subscription = app(config('filament-subscriptions.model'))
+        $subscription = app(config("filament-subscriptions.model"))
             ->planSubscriptions()
             ->latest()
             ->first();
@@ -87,12 +87,12 @@ class ManageSubscriptionPage extends Page
 
             if ($this->isPaid || $this->isTrial) {
                 $this->message =
-                    __('ui.the_currently_active_subscription').
-                    ' '.
+                    __("ui.the_currently_active_subscription") .
+                    " " .
                     $this->name;
             } else {
                 $this->message = __(
-                    'ui.your_plan_subscription_has_created_successfully'
+                    "ui.your_plan_subscription_has_created_successfully"
                 );
             }
         }
@@ -111,11 +111,11 @@ class ManageSubscriptionPage extends Page
     protected function getActions(): array
     {
         return [
-            Action::make('upgrade')
-                ->label(__('ui.upgrade_plan'))
-                ->url(route('filament.admin.pages.plans-page'))
-                ->color('success')
-                ->icon('heroicon-o-rectangle-stack'),
+            Action::make("upgrade")
+                ->label(__("ui.upgrade_plan"))
+                ->url(route("filament.admin.pages.plans-page"))
+                ->color("success")
+                ->icon("heroicon-o-rectangle-stack"),
         ];
     }
 }
