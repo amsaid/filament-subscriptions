@@ -14,8 +14,6 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
 {
     public function register(): void
     {
-        $this->registerConfig();
-
         $this->callAfterResolving(Factory::class, function (
             Factory $factory,
             Container $container
