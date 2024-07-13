@@ -60,7 +60,7 @@ class FeatureResource extends Resource
                     TextInput::make("name")
                         ->label(__("filament-subscriptions::ui.name"))
                         ->required()
-                        ->live()
+                        ->live(onBlur: true)
                         ->afterStateUpdated(function ($state, callable $set) {
                             $set("slug", Str::slug($state));
                         })

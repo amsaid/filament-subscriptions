@@ -38,7 +38,7 @@ class PlanResource extends Resource
                     TextInput::make("name")
                         ->label("Name")
                         ->required()
-                        ->live()
+                        ->live(onBlur: true)
                         ->afterStateUpdated(function ($state, callable $set) {
                             $set("slug", Str::slug($state));
                         })
@@ -54,7 +54,7 @@ class PlanResource extends Resource
                         ]),
                     Select::make("currency_id")
                         ->label("Currency")
-                        ->live()
+                        ->live(onBlur: true)
                         ->required()
                         ->options(
                             PlanCurrency::all()->pluck("name", "id")->toArray()
