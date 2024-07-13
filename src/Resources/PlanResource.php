@@ -29,140 +29,140 @@ class PlanResource extends Resource
 {
     protected static ?string $model = Plan::class;
 
-    protected static ?string $navigationIcon = "ecoleplus-subs-icon-plan";
+    protected static ?string $navigationIcon = 'ecoleplus-subs-icon-plan';
 
     public static function getLabel(): ?string
     {
-        return __("ui.plans");
+        return __('ui.plans');
     }
 
     public static function getPluralLabel(): ?string
     {
-        return __("ui.plans");
+        return __('ui.plans');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __("ui.plans");
+        return __('ui.plans');
     }
 
     public static function getNavigationGroup(): string
     {
-        return __("ui.plans");
+        return __('ui.plans');
     }
 
-    protected static ?string $recordTitleAttribute = "name";
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Form $form): Form
     {
         return $form->schema([
             Section::make()
                 ->schema([
-                    TextInput::make("name")
-                        ->label(__("ui.name"))
+                    TextInput::make('name')
+                        ->label(__('ui.name'))
                         ->required()
                         ->reactive()
                         ->afterStateUpdated(function ($state, callable $set) {
-                            $set("slug", Str::slug($state));
+                            $set('slug', Str::slug($state));
                         })
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    TextInput::make("slug")
-                        ->label(__("ui.slug"))
+                    TextInput::make('slug')
+                        ->label(__('ui.slug'))
                         ->required()
                         ->disabled()
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    Select::make("currency_id")
-                        ->label(__("ui.currency"))
+                    Select::make('currency_id')
+                        ->label(__('ui.currency'))
                         ->reactive()
                         ->required()
                         ->options(
-                            Currency::all()->pluck("name", "id")->toArray()
+                            Currency::all()->pluck('name', 'id')->toArray()
                         )
                         ->searchable()
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    TextInput::make("price")
-                        ->label(__("ui.price"))
+                    TextInput::make('price')
+                        ->label(__('ui.price'))
                         ->numeric()
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    TextInput::make("signup_fee")
-                        ->label(__("ui.signup_fee"))
+                    TextInput::make('signup_fee')
+                        ->label(__('ui.signup_fee'))
                         ->numeric()
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    TextInput::make("trial_period")
-                        ->label(__("ui.trial_period"))
+                    TextInput::make('trial_period')
+                        ->label(__('ui.trial_period'))
                         ->numeric()
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    Select::make("period")
-                        ->label(__("ui.period"))
+                    Select::make('period')
+                        ->label(__('ui.period'))
                         ->options([
-                            "Yearly" => __("ui.yearly"),
-                            "Monthly" => __("ui.monthly"),
+                            'Yearly' => __('ui.yearly'),
+                            'Monthly' => __('ui.monthly'),
                         ])
-                        ->default("Monthly")
+                        ->default('Monthly')
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    TextInput::make("active_subscribers_limit")
-                        ->label(__("ui.active_subscribers_limit"))
+                    TextInput::make('active_subscribers_limit')
+                        ->label(__('ui.active_subscribers_limit'))
                         ->numeric()
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    Select::make("status")
-                        ->label(__("ui.status"))
+                    Select::make('status')
+                        ->label(__('ui.status'))
                         ->options([
-                            "1" => __("ui.active"),
-                            "0" => __("ui.inactive"),
+                            '1' => __('ui.active'),
+                            '0' => __('ui.inactive'),
                         ])
-                        ->default("1")
+                        ->default('1')
                         ->disablePlaceholderSelection()
                         ->columnSpan([
-                            "md" => 6,
+                            'md' => 6,
                         ]),
-                    MarkdownEditor::make("description")
-                        ->label(__("panel.description"))
+                    MarkdownEditor::make('description')
+                        ->label(__('panel.description'))
                         ->columnSpan([
-                            "md" => 12,
+                            'md' => 12,
                         ]),
-                    FileUpload::make("image")
-                        ->label(__("panel.image"))
+                    FileUpload::make('image')
+                        ->label(__('panel.image'))
                         ->columnSpan([
-                            "md" => 12,
+                            'md' => 12,
                         ]),
                 ])
                 ->columns([
-                    "md" => 12,
+                    'md' => 12,
                 ])
-                ->columnSpan("full"),
+                ->columnSpan('full'),
 
             Section::make()
                 ->schema([
-                    Forms\Components\Placeholder::make("All Features"),
-                    CheckboxList::make("features")
-                        ->relationship("features", "id")
-                        ->label(__("ui.all_features"))
-                        ->options(Feature::pluck("name", "id")->toArray())
+                    Forms\Components\Placeholder::make('All Features'),
+                    CheckboxList::make('features')
+                        ->relationship('features', 'id')
+                        ->label(__('ui.all_features'))
+                        ->options(Feature::pluck('name', 'id')->toArray())
                         ->columns(3)
                         ->columnSpan([
-                            "md" => 12,
+                            'md' => 12,
                         ]),
                 ])
                 ->columns([
-                    "md" => 12,
+                    'md' => 12,
                 ])
-                ->columnSpan("full"),
+                ->columnSpan('full'),
         ]);
     }
 
@@ -170,83 +170,83 @@ class PlanResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make("image")->label(__("ui.image"))->circular(),
-                TextColumn::make("name")
-                    ->label(__("ui.name"))
-                    ->icon("heroicon-o-rectangle-stack")
+                ImageColumn::make('image')->label(__('ui.image'))->circular(),
+                TextColumn::make('name')
+                    ->label(__('ui.name'))
+                    ->icon('heroicon-o-rectangle-stack')
                     ->sortable()
                     ->searchable(),
-                TextColumn::make("price")
-                    ->label(__("ui.price"))
+                TextColumn::make('price')
+                    ->label(__('ui.price'))
                     ->sortable()
                     ->searchable(),
-                TextColumn::make("features_count")
+                TextColumn::make('features_count')
                     ->badge()
-                    ->label(__("ui.features_count"))
+                    ->label(__('ui.features_count'))
                     ->color(static function ($state): string {
                         if ($state === 0) {
-                            return "danger";
+                            return 'danger';
                         }
 
-                        return "success";
+                        return 'success';
                     })
-                    ->counts("features"),
-                TextColumn::make("subscriptions_count")
+                    ->counts('features'),
+                TextColumn::make('subscriptions_count')
                     ->badge()
-                    ->label(__("ui.subscriptions_count"))
+                    ->label(__('ui.subscriptions_count'))
                     ->color(static function ($state): string {
                         if ($state === 0) {
-                            return "danger";
+                            return 'danger';
                         }
 
-                        return "success";
+                        return 'success';
                     })
-                    ->counts("subscriptions"),
-                IconColumn::make("status")
-                    ->label(__("ui.status"))
+                    ->counts('subscriptions'),
+                IconColumn::make('status')
+                    ->label(__('ui.status'))
                     ->boolean()
-                    ->trueIcon("heroicon-o-rectangle-stack")
-                    ->falseIcon("heroicon-o-rectangle-stack"),
-                TextColumn::make("created_at")->label(__("ui.created_at")),
+                    ->trueIcon('heroicon-o-rectangle-stack')
+                    ->falseIcon('heroicon-o-rectangle-stack'),
+                TextColumn::make('created_at')->label(__('ui.created_at')),
             ])
             ->filters([
-                SelectFilter::make("status")
-                    ->label(__("ui.status"))
+                SelectFilter::make('status')
+                    ->label(__('ui.status'))
                     ->options([
-                        "1" => __("ui.active"),
-                        "0" => __("ui.inactive"),
+                        '1' => __('ui.active'),
+                        '0' => __('ui.inactive'),
                     ]),
-                Filter::make("created_at")
-                    ->label(__("panel.created_at"))
+                Filter::make('created_at')
+                    ->label(__('panel.created_at'))
                     ->form([
                         Forms\Components\DatePicker::make(
-                            "created_from"
-                        )->label(__("ui.created_from")),
+                            'created_from'
+                        )->label(__('ui.created_from')),
                         Forms\Components\DatePicker::make(
-                            "created_until"
-                        )->label(__("ui.created_until")),
+                            'created_until'
+                        )->label(__('ui.created_until')),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
                             ->when(
-                                $data["created_from"],
-                                fn(
+                                $data['created_from'],
+                                fn (
                                     Builder $query,
                                     $date
                                 ): Builder => $query->whereDate(
-                                    "created_at",
-                                    ">=",
+                                    'created_at',
+                                    '>=',
                                     $date
                                 )
                             )
                             ->when(
-                                $data["created_until"],
-                                fn(
+                                $data['created_until'],
+                                fn (
                                     Builder $query,
                                     $date
                                 ): Builder => $query->whereDate(
-                                    "created_at",
-                                    "<=",
+                                    'created_at',
+                                    '<=',
                                     $date
                                 )
                             );
@@ -263,16 +263,16 @@ class PlanResource extends Resource
     public static function getRelations(): array
     {
         return [
-                //
-            ];
+            //
+        ];
     }
 
     public static function getPages(): array
     {
         return [
-            "index" => Pages\ListPlans::route("/"),
-            "create" => Pages\CreatePlan::route("/create"),
-            "edit" => Pages\EditPlan::route("/{record}/edit"),
+            'index' => Pages\ListPlans::route('/'),
+            'create' => Pages\CreatePlan::route('/create'),
+            'edit' => Pages\EditPlan::route('/{record}/edit'),
         ];
     }
 }
