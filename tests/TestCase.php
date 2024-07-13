@@ -1,8 +1,8 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Tests;
+namespace EcolePlus\FilamentSubscription\Tests;
 
-use IbrahimBougaoua\FilamentSubscription\FilamentSubscriptionServiceProvider;
+use EcolePlus\FilamentSubscription\FilamentSubscriptionServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -13,20 +13,22 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'IbrahimBougaoua\\FilamentSubscription\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn(
+                string $modelName
+            ) => "EcolePlus\\FilamentSubscription\\Database\\Factories\\" .
+                class_basename($modelName) .
+                "Factory"
         );
     }
 
     protected function getPackageProviders($app)
     {
-        return [
-            FilamentSubscriptionServiceProvider::class,
-        ];
+        return [FilamentSubscriptionServiceProvider::class];
     }
 
     public function getEnvironmentSetUp($app)
     {
-        config()->set('database.default', 'testing');
+        config()->set("database.default", "testing");
 
         /*
         $migration = include __DIR__.'/../database/migrations/create_filament-subscriptions_table.php.stub';

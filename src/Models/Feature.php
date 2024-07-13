@@ -1,8 +1,8 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Models;
+namespace EcolePlus\FilamentSubscription\Models;
 
-use IbrahimBougaoua\FilamentSubscription\Traits\SortOrder;
+use EcolePlus\FilamentSubscription\Traits\SortOrder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;

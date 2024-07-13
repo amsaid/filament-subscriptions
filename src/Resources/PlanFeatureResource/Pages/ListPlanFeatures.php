@@ -1,10 +1,10 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Resources\PlanFeatureResource\Pages;
+namespace EcolePlus\FilamentSubscription\Resources\PlanFeatureResource\Pages;
 
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
-use IbrahimBougaoua\FilamentSubscription\Resources\PlanFeatureResource;
+use EcolePlus\FilamentSubscription\Resources\PlanFeatureResource;
 
 class ListPlanFeatures extends ListRecords
 {
@@ -12,8 +12,6 @@ class ListPlanFeatures extends ListRecords
 
     protected function getActions(): array
     {
-        return [
-            Actions\CreateAction::make(),
-        ];
+        return [Actions\CreateAction::make()];
     }
 }

@@ -1,15 +1,15 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription;
+namespace EcolePlus\FilamentSubscription;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use IbrahimBougaoua\FilamentSubscription\Pages\ManageSubscriptionPage;
-use IbrahimBougaoua\FilamentSubscription\Pages\PlansPage;
-use IbrahimBougaoua\FilamentSubscription\Resources\FeatureResource;
-use IbrahimBougaoua\FilamentSubscription\Resources\PlanResource;
-use IbrahimBougaoua\FilamentSubscription\Resources\PlanSubscriptionsResource;
-use IbrahimBougaoua\FilamentSubscription\Widgets\SubscriptionsOverview;
+use EcolePlus\FilamentSubscription\Pages\ManageSubscriptionPage;
+use EcolePlus\FilamentSubscription\Pages\PlansPage;
+use EcolePlus\FilamentSubscription\Resources\FeatureResource;
+use EcolePlus\FilamentSubscription\Resources\PlanResource;
+use EcolePlus\FilamentSubscription\Resources\PlanSubscriptionsResource;
+use EcolePlus\FilamentSubscription\Widgets\SubscriptionsOverview;
 
 class FilamentSubscriptionPlugin implements Plugin
 {
@@ -20,7 +20,7 @@ class FilamentSubscriptionPlugin implements Plugin
 
     public function getId(): string
     {
-        return 'filament-subscriptions';
+        return "filament-subscriptions";
     }
 
     public function register(Panel $panel): void
@@ -31,13 +31,8 @@ class FilamentSubscriptionPlugin implements Plugin
                 FeatureResource::class,
                 PlanSubscriptionsResource::class,
             ])
-            ->pages([
-                ManageSubscriptionPage::class,
-                PlansPage::class,
-            ])
-            ->widgets([
-                SubscriptionsOverview::class,
-            ]);
+            ->pages([ManageSubscriptionPage::class, PlansPage::class])
+            ->widgets([SubscriptionsOverview::class]);
     }
 
     public function boot(Panel $panel): void

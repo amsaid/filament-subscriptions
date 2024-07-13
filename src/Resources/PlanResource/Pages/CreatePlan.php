@@ -1,10 +1,10 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Resources\PlanResource\Pages;
+namespace EcolePlus\FilamentSubscription\Resources\PlanResource\Pages;
 
 use Filament\Actions\Action;
 use Filament\Resources\Pages\CreateRecord;
-use IbrahimBougaoua\FilamentSubscription\Resources\PlanResource;
+use EcolePlus\FilamentSubscription\Resources\PlanResource;
 
 class CreatePlan extends CreateRecord
 {

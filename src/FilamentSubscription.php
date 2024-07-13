@@ -1,6 +1,6 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription;
+namespace EcolePlus\FilamentSubscription;
 
 class FilamentSubscription
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Components;
+namespace EcolePlus\FilamentSubscription\Components;
 
 use Filament\Forms\Components\Component;
-
+use Illuminate\Contracts\View\View;
 class PlanDetails extends Component
 {
     public $name;
@@ -14,8 +14,8 @@ class PlanDetails extends Component
     {
     }
 
-    public function render()
+    public function render(): View
     {
-        return view('filament-subscriptions::components.plan-details');
+        return view("filament-subscriptions::components.plan-details");
     }
 }

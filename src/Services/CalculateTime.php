@@ -1,6 +1,6 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Services;
+namespace EcolePlus\FilamentSubscription\Services;
 
 use Carbon\Carbon;
 
@@ -42,20 +42,28 @@ class CalculateTime
 
     public function trialEndsAt()
     {
-        return $this->trial_ends_at = $this->period == Period::Trial->name ? Carbon::now()->addDays($this->trial_days) : null;
+        return $this->trial_ends_at =
+            $this->period == Period::Trial->name
+                ? Carbon::now()->addDays($this->trial_days)
+                : null;
     }
 
     public function startsAt()
     {
-        return $this->starts_at = $this->period != Period::Trial->name ? Carbon::now() : null;
+        return $this->starts_at =
+            $this->period != Period::Trial->name ? Carbon::now() : null;
     }
 
     public function endsAt()
     {
         if ($this->period == Period::Yearly->name) {
-            return $this->ends_at = Carbon::now()->addYears($this->number_years);
+            return $this->ends_at = Carbon::now()->addYears(
+                $this->number_years
+            );
         } elseif ($this->period == Period::Monthly->name) {
-            return $this->ends_at = $this->ends_at ?? Carbon::now()->addMonths($this->number_months);
+            return $this->ends_at =
+                $this->ends_at ??
+                Carbon::now()->addMonths($this->number_months);
         } else {
             return $this->startsAt();
         }
@@ -63,7 +71,8 @@ class CalculateTime
 
     public function getTrialEndsAt()
     {
-        return $this->trial_ends_at = $this->trial_ends_at ?? $this->trialEndsAt();
+        return $this->trial_ends_at =
+            $this->trial_ends_at ?? $this->trialEndsAt();
     }
 
     public function getStartsAt()

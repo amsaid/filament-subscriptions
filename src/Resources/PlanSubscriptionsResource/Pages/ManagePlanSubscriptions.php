@@ -1,12 +1,12 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Resources\PlanSubscriptionsResource\Pages;
+namespace EcolePlus\FilamentSubscription\Resources\PlanSubscriptionsResource\Pages;
 
 use Filament\Actions\Action;
 use Filament\Resources\Pages\ManageRecords;
-use IbrahimBougaoua\FilamentSubscription\Models\PlanSubscription;
-use IbrahimBougaoua\FilamentSubscription\Resources\PlanSubscriptionsResource;
-use IbrahimBougaoua\FilamentSubscription\Widgets\SubscriptionsOverview;
+use EcolePlus\FilamentSubscription\Models\PlanSubscription;
+use EcolePlus\FilamentSubscription\Resources\PlanSubscriptionsResource;
+use EcolePlus\FilamentSubscription\Widgets\SubscriptionsOverview;
 use Illuminate\Database\Eloquent\Builder;
 
 class ManagePlanSubscriptions extends ManageRecords
@@ -16,16 +16,16 @@ class ManagePlanSubscriptions extends ManageRecords
     protected function getActions(): array
     {
         return [
-            Action::make('plans')
-                ->label(__('ui.plans'))
-                ->url(route('filament.admin.resources.plans.index'))
-                ->color('success')
-                ->icon('heroicon-o-rectangle-stack'),
-            Action::make('features')
-                ->label(__('ui.features'))
-                ->url(route('filament.admin.resources.features.index'))
-                ->color('success')
-                ->icon('heroicon-o-rectangle-stack'),
+            Action::make("plans")
+                ->label(__("ui.plans"))
+                ->url(route("filament.admin.resources.plans.index"))
+                ->color("success")
+                ->icon("heroicon-o-rectangle-stack"),
+            Action::make("features")
+                ->label(__("ui.features"))
+                ->url(route("filament.admin.resources.features.index"))
+                ->color("success")
+                ->icon("heroicon-o-rectangle-stack"),
         ];
     }
 
@@ -36,8 +36,6 @@ class ManagePlanSubscriptions extends ManageRecords
 
     protected function getHeaderWidgets(): array
     {
-        return [
-            SubscriptionsOverview::class,
-        ];
+        return [SubscriptionsOverview::class];
     }
 }

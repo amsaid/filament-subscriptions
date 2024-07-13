@@ -1,6 +1,6 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Services;
+namespace EcolePlus\FilamentSubscription\Services;
 
 enum Period
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Resources\PlanFeatureResource\Pages;
+namespace EcolePlus\FilamentSubscription\Resources\PlanFeatureResource\Pages;
 
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
-use IbrahimBougaoua\FilamentSubscription\Resources\PlanFeatureResource;
+use EcolePlus\FilamentSubscription\Resources\PlanFeatureResource;
 
 class EditPlanFeature extends EditRecord
 {
@@ -12,8 +12,6 @@ class EditPlanFeature extends EditRecord
 
     protected function getActions(): array
     {
-        return [
-            Actions\DeleteAction::make(),
-        ];
+        return [Actions\DeleteAction::make()];
     }
 }

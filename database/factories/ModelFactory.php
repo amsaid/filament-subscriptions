@@ -1,6 +1,6 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Database\Factories;
+namespace EcolePlus\FilamentSubscription\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

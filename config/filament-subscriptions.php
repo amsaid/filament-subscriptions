@@ -1,6 +1,7 @@
 <?php
 
-// config for IbrahimBougaoua/FilamentSubscription
+// config for EcolePlus/FilamentSubscription
 return [
-    'currency' => ' DA',
+    "currency" => " MAD",
+    "model" => "App\\Models\\User",
 ];

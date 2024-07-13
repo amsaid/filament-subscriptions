@@ -1,6 +1,6 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Resources;
+namespace EcolePlus\FilamentSubscription\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Components\CheckboxList;
@@ -18,10 +18,10 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use IbrahimBougaoua\FilamentSubscription\Models\Currency;
-use IbrahimBougaoua\FilamentSubscription\Models\Feature;
-use IbrahimBougaoua\FilamentSubscription\Models\Plan;
-use IbrahimBougaoua\FilamentSubscription\Resources\PlanResource\Pages;
+use EcolePlus\FilamentSubscription\Models\Currency;
+use EcolePlus\FilamentSubscription\Models\Feature;
+use EcolePlus\FilamentSubscription\Models\Plan;
+use EcolePlus\FilamentSubscription\Resources\PlanResource\Pages;
 use Illuminate\Database\Eloquent\Builder;
 use Str;
 

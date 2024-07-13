@@ -1,13 +1,13 @@
 <?php
 
-namespace IbrahimBougaoua\FilamentSubscription\Widgets;
+namespace EcolePlus\FilamentSubscription\Widgets;
 
 use Carbon\Carbon;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 use Flowframe\Trend\Trend;
 use Flowframe\Trend\TrendValue;
-use IbrahimBougaoua\FilamentSubscription\Models\PlanSubscription;
+use EcolePlus\FilamentSubscription\Models\PlanSubscription;
 
 class SubscriptionsOverview extends BaseWidget
 {
