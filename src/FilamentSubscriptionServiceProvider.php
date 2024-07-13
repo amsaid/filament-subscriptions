@@ -50,8 +50,8 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
             $config = $container->make('config')->get('blade-heroicons', []);
 
             $factory->add(
-                "ecoleplus-subs-icon",
-                array_merge(["path" => __DIR__ . "/../resources/svg"], $config)
+                'ecoleplus-subs-icon',
+                array_merge(['path' => __DIR__.'/../resources/svg'], $config)
             );
         });
     }
