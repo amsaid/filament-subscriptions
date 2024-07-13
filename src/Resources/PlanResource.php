@@ -61,7 +61,7 @@ class PlanResource extends Resource
                     TextInput::make("name")
                         ->label(__("filament-subscriptions::ui.name"))
                         ->required()
-                        ->reactive()
+                        ->live()
                         ->afterStateUpdated(function ($state, callable $set) {
                             $set("slug", Str::slug($state));
                         })
@@ -77,7 +77,7 @@ class PlanResource extends Resource
                         ]),
                     Select::make("currency_id")
                         ->label(__("filament-subscriptions::ui.currency"))
-                        ->reactive()
+                        ->live()
                         ->required()
                         ->options(
                             Currency::all()->pluck("name", "id")->toArray()

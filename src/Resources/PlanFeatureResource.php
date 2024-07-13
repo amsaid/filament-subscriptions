@@ -42,7 +42,7 @@ class PlanFeatureResource extends Resource
                     TextInput::make("name")
                         ->label("Name")
                         ->required()
-                        ->reactive()
+                        ->live()
                         ->afterStateUpdated(function ($state, callable $set) {
                             $set("slug", Str::slug($state));
                         })
@@ -90,7 +90,7 @@ class PlanFeatureResource extends Resource
                         ]),
                     Select::make("plan_id")
                         ->label("Plan")
-                        ->reactive()
+                        ->live()
                         ->required()
                         ->options(Plan::all()->pluck("name", "id")->toArray())
                         ->searchable()
