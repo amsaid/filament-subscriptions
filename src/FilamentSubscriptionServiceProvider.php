@@ -20,11 +20,11 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name("filament-subscriptions")
+            ->name('filament-subscriptions')
             ->hasTranslations()
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration("create_filament_subscriptions_table")
+            ->hasMigration('create_filament_subscriptions_table')
             ->hasCommand(FilamentSubscriptionCommand::class);
     }
 
@@ -33,11 +33,11 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
         FilamentAsset::register(
             [
                 Css::make(
-                    "filament-subscriptions-tailwindcss-styles",
-                    __DIR__ . "/../dist/css/style.css"
+                    'filament-subscriptions-tailwindcss-styles',
+                    __DIR__.'/../dist/css/style.css'
                 ),
             ],
-            "filament-subscriptions"
+            'filament-subscriptions'
         );
     }
 
@@ -47,11 +47,11 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
             Factory $factory,
             Container $container
         ) {
-            $config = $container->make("config")->get("blade-heroicons", []);
+            $config = $container->make('config')->get('blade-heroicons', []);
 
             $factory->add(
-                "icon",
-                array_merge(["path" => __DIR__ . "/../resources/svg"], $config)
+                'icon',
+                array_merge(['path' => __DIR__.'/../resources/svg'], $config)
             );
         });
     }
