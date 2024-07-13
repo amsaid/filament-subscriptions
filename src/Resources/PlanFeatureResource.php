@@ -98,12 +98,12 @@ class PlanFeatureResource extends Resource
                             "md" => 6,
                         ]),
                     MarkdownEditor::make("description")
-                        ->label(__("panel.description"))
+                        ->label(__("description"))
                         ->columnSpan([
                             "md" => 12,
                         ]),
                     FileUpload::make("image")
-                        ->label(__("panel.image"))
+                        ->label(__("image"))
                         ->columnSpan([
                             "md" => 12,
                         ]),
@@ -150,7 +150,7 @@ class PlanFeatureResource extends Resource
                         "0" => "Inactive",
                     ]),
                 Filter::make("created_at")
-                    ->label(__("panel.created_at"))
+                    ->label(__("created_at"))
                     ->form([
                         Forms\Components\DatePicker::make(
                             "created_from"
