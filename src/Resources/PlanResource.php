@@ -33,22 +33,22 @@ class PlanResource extends Resource
 
     public static function getLabel(): ?string
     {
-        return __("ui.plans");
+        return __("filament-subscriptions::ui.plans");
     }
 
     public static function getPluralLabel(): ?string
     {
-        return __("ui.plans");
+        return __("filament-subscriptions::ui.plans");
     }
 
     public static function getNavigationLabel(): string
     {
-        return __("ui.plans");
+        return __("filament-subscriptions::ui.plans");
     }
 
     public static function getNavigationGroup(): string
     {
-        return __("ui.plans");
+        return __("filament-subscriptions::ui.plans");
     }
 
     protected static ?string $recordTitleAttribute = "name";
@@ -59,7 +59,7 @@ class PlanResource extends Resource
             Section::make()
                 ->schema([
                     TextInput::make("name")
-                        ->label(__("ui.name"))
+                        ->label(__("filament-subscriptions::ui.name"))
                         ->required()
                         ->reactive()
                         ->afterStateUpdated(function ($state, callable $set) {
@@ -69,14 +69,14 @@ class PlanResource extends Resource
                             "md" => 6,
                         ]),
                     TextInput::make("slug")
-                        ->label(__("ui.slug"))
+                        ->label(__("filament-subscriptions::ui.slug"))
                         ->required()
                         ->disabled()
                         ->columnSpan([
                             "md" => 6,
                         ]),
                     Select::make("currency_id")
-                        ->label(__("ui.currency"))
+                        ->label(__("filament-subscriptions::ui.currency"))
                         ->reactive()
                         ->required()
                         ->options(
@@ -87,44 +87,50 @@ class PlanResource extends Resource
                             "md" => 6,
                         ]),
                     TextInput::make("price")
-                        ->label(__("ui.price"))
+                        ->label(__("filament-subscriptions::ui.price"))
                         ->numeric()
                         ->columnSpan([
                             "md" => 6,
                         ]),
                     TextInput::make("signup_fee")
-                        ->label(__("ui.signup_fee"))
+                        ->label(__("filament-subscriptions::ui.signup_fee"))
                         ->numeric()
                         ->columnSpan([
                             "md" => 6,
                         ]),
                     TextInput::make("trial_period")
-                        ->label(__("ui.trial_period"))
+                        ->label(__("filament-subscriptions::ui.trial_period"))
                         ->numeric()
                         ->columnSpan([
                             "md" => 6,
                         ]),
                     Select::make("period")
-                        ->label(__("ui.period"))
+                        ->label(__("filament-subscriptions::ui.period"))
                         ->options([
-                            "Yearly" => __("ui.yearly"),
-                            "Monthly" => __("ui.monthly"),
+                            "Yearly" => __("filament-subscriptions::ui.yearly"),
+                            "Monthly" => __(
+                                "filament-subscriptions::ui.monthly"
+                            ),
                         ])
                         ->default("Monthly")
                         ->columnSpan([
                             "md" => 6,
                         ]),
                     TextInput::make("active_subscribers_limit")
-                        ->label(__("ui.active_subscribers_limit"))
+                        ->label(
+                            __(
+                                "filament-subscriptions::ui.active_subscribers_limit"
+                            )
+                        )
                         ->numeric()
                         ->columnSpan([
                             "md" => 6,
                         ]),
                     Select::make("status")
-                        ->label(__("ui.status"))
+                        ->label(__("filament-subscriptions::ui.status"))
                         ->options([
-                            "1" => __("ui.active"),
-                            "0" => __("ui.inactive"),
+                            "1" => __("filament-subscriptions::ui.active"),
+                            "0" => __("filament-subscriptions::ui.inactive"),
                         ])
                         ->default("1")
                         ->disablePlaceholderSelection()
@@ -152,7 +158,7 @@ class PlanResource extends Resource
                     Forms\Components\Placeholder::make("All Features"),
                     CheckboxList::make("features")
                         ->relationship("features", "id")
-                        ->label(__("ui.all_features"))
+                        ->label(__("filament-subscriptions::ui.all_features"))
                         ->options(Feature::pluck("name", "id")->toArray())
                         ->columns(3)
                         ->columnSpan([
@@ -170,19 +176,21 @@ class PlanResource extends Resource
     {
         return $table
             ->columns([
-                ImageColumn::make("image")->label(__("ui.image"))->circular(),
+                ImageColumn::make("image")
+                    ->label(__("filament-subscriptions::ui.image"))
+                    ->circular(),
                 TextColumn::make("name")
-                    ->label(__("ui.name"))
+                    ->label(__("filament-subscriptions::ui.name"))
                     ->icon("heroicon-o-rectangle-stack")
                     ->sortable()
                     ->searchable(),
                 TextColumn::make("price")
-                    ->label(__("ui.price"))
+                    ->label(__("filament-subscriptions::ui.price"))
                     ->sortable()
                     ->searchable(),
                 TextColumn::make("features_count")
                     ->badge()
-                    ->label(__("ui.features_count"))
+                    ->label(__("filament-subscriptions::ui.features_count"))
                     ->color(static function ($state): string {
                         if ($state === 0) {
                             return "danger";
@@ -193,7 +201,9 @@ class PlanResource extends Resource
                     ->counts("features"),
                 TextColumn::make("subscriptions_count")
                     ->badge()
-                    ->label(__("ui.subscriptions_count"))
+                    ->label(
+                        __("filament-subscriptions::ui.subscriptions_count")
+                    )
                     ->color(static function ($state): string {
                         if ($state === 0) {
                             return "danger";
@@ -203,28 +213,32 @@ class PlanResource extends Resource
                     })
                     ->counts("subscriptions"),
                 IconColumn::make("status")
-                    ->label(__("ui.status"))
+                    ->label(__("filament-subscriptions::ui.status"))
                     ->boolean()
                     ->trueIcon("heroicon-o-rectangle-stack")
                     ->falseIcon("heroicon-o-rectangle-stack"),
-                TextColumn::make("created_at")->label(__("ui.created_at")),
+                TextColumn::make("created_at")->label(
+                    __("filament-subscriptions::ui.created_at")
+                ),
             ])
             ->filters([
                 SelectFilter::make("status")
-                    ->label(__("ui.status"))
+                    ->label(__("filament-subscriptions::ui.status"))
                     ->options([
-                        "1" => __("ui.active"),
-                        "0" => __("ui.inactive"),
+                        "1" => __("filament-subscriptions::ui.active"),
+                        "0" => __("filament-subscriptions::ui.inactive"),
                     ]),
                 Filter::make("created_at")
                     ->label(__("panel.created_at"))
                     ->form([
                         Forms\Components\DatePicker::make(
                             "created_from"
-                        )->label(__("ui.created_from")),
+                        )->label(__("filament-subscriptions::ui.created_from")),
                         Forms\Components\DatePicker::make(
                             "created_until"
-                        )->label(__("ui.created_until")),
+                        )->label(
+                            __("filament-subscriptions::ui.created_until")
+                        ),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query

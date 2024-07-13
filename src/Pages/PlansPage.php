@@ -36,12 +36,12 @@ class PlansPage extends Page
 
     public static function getNavigationGroup(): ?string
     {
-        return __("ui.manage_subscriptions");
+        return __("filament-subscriptions::ui.manage_subscriptions");
     }
 
     public static function getNavigationLabel(): string
     {
-        return __("ui.plans");
+        return __("filament-subscriptions::ui.plans");
     }
 
     public function switchPlan($plan_id)
@@ -63,11 +63,11 @@ class PlansPage extends Page
 
         Notification::make()
             ->title(
-                __("ui.switched_to") .
+                __("filament-subscriptions::ui.switched_to") .
                     " " .
                     $subscription->name .
                     " " .
-                    __("ui.plan_successfully")
+                    __("filament-subscriptions::ui.plan_successfully")
             )
             ->success()
             ->send();
@@ -81,7 +81,7 @@ class PlansPage extends Page
     {
         return [
             Action::make("manage-subscription")
-                ->label(__("ui.manage_subscription"))
+                ->label(__("filament-subscriptions::ui.manage_subscription"))
                 ->url(route("filament.admin.pages.manage-subscription-page"))
                 ->color("success")
                 ->icon("heroicon-o-rectangle-stack"),

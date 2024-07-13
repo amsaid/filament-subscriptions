@@ -24,22 +24,22 @@ class PlanSubscriptionsResource extends Resource
 
     public static function getLabel(): ?string
     {
-        return __("ui.subscribed_user_plans");
+        return __("filament-subscriptions::ui.subscribed_user_plans");
     }
 
     public static function getPluralLabel(): ?string
     {
-        return __("ui.subscribed_user_plans");
+        return __("filament-subscriptions::ui.subscribed_user_plans");
     }
 
     public static function getNavigationLabel(): string
     {
-        return __("ui.subscribed_user_plans");
+        return __("filament-subscriptions::ui.subscribed_user_plans");
     }
 
     public static function getNavigationGroup(): string
     {
-        return __("ui.plans");
+        return __("filament-subscriptions::ui.plans");
     }
 
     protected static ?string $recordTitleAttribute = "name";
@@ -55,37 +55,37 @@ class PlanSubscriptionsResource extends Resource
             Section::make()
                 ->schema([
                     TextInput::make("name")
-                        ->label(__("ui.name"))
+                        ->label(__("filament-subscriptions::ui.name"))
                         ->disabled()
                         ->columnSpan([
                             "md" => 4,
                         ]),
                     TextInput::make("trial_ends_at")
-                        ->label(__("ui.trial_ends_at"))
+                        ->label(__("filament-subscriptions::ui.trial_ends_at"))
                         ->disabled()
                         ->columnSpan([
                             "md" => 4,
                         ]),
                     TextInput::make("starts_at")
-                        ->label(__("ui.starts_at"))
+                        ->label(__("filament-subscriptions::ui.starts_at"))
                         ->disabled()
                         ->columnSpan([
                             "md" => 4,
                         ]),
                     TextInput::make("ends_at")
-                        ->label(__("ui.ends_at"))
+                        ->label(__("filament-subscriptions::ui.ends_at"))
                         ->disabled()
                         ->columnSpan([
                             "md" => 4,
                         ]),
                     TextInput::make("cancels_at")
-                        ->label(__("ui.cancels_at"))
+                        ->label(__("filament-subscriptions::ui.cancels_at"))
                         ->disabled()
                         ->columnSpan([
                             "md" => 4,
                         ]),
                     TextInput::make("canceled_at")
-                        ->label(__("ui.canceled_at"))
+                        ->label(__("filament-subscriptions::ui.canceled_at"))
                         ->disabled()
                         ->columnSpan([
                             "md" => 4,
@@ -106,51 +106,55 @@ class PlanSubscriptionsResource extends Resource
                     ->badge()
                     ->colors(["secondary"])
                     ->limit(8)
-                    ->label(__("ui.subscriber")),
+                    ->label(__("filament-subscriptions::ui.subscriber")),
                 TextColumn::make("name")
                     ->badge()
-                    ->label(__("ui.name"))
+                    ->label(__("filament-subscriptions::ui.name"))
                     ->colors(["primary"])
                     ->searchable(),
                 TextColumn::make("price")
                     ->badge()
-                    ->label(__("ui.price"))
+                    ->label(__("filament-subscriptions::ui.price"))
                     ->suffix(config("filament-subscriptions.currency"))
                     ->colors(["success"]),
                 TextColumn::make("trial_ends_at")
                     ->badge()
-                    ->label(__("ui.trial_ends_at"))
+                    ->label(__("filament-subscriptions::ui.trial_ends_at"))
                     ->colors(["secondary"]),
                 TextColumn::make("starts_at")
                     ->badge()
-                    ->label(__("ui.starts_at"))
+                    ->label(__("filament-subscriptions::ui.starts_at"))
                     ->colors(["success"]),
                 TextColumn::make("ends_at")
                     ->badge()
-                    ->label(__("ui.ends_at"))
+                    ->label(__("filament-subscriptions::ui.ends_at"))
                     ->colors(["danger"]),
-                ToggleColumn::make("is_paid")->label(__("ui.unpaid_paid")),
+                ToggleColumn::make("is_paid")->label(
+                    __("filament-subscriptions::ui.unpaid_paid")
+                ),
                 TextColumn::make("created_at")
                     ->badge()
-                    ->label(__("ui.created_at"))
+                    ->label(__("filament-subscriptions::ui.created_at"))
                     ->colors(["success"]),
             ])
             ->filters([
                 SelectFilter::make("is_paid")
-                    ->label(__("ui.unpaid_paid"))
+                    ->label(__("filament-subscriptions::ui.unpaid_paid"))
                     ->options([
-                        "1" => __("ui.paid"),
-                        "0" => __("ui.unpaid"),
+                        "1" => __("filament-subscriptions::ui.paid"),
+                        "0" => __("filament-subscriptions::ui.unpaid"),
                     ]),
                 Tables\Filters\Filter::make("created_at")
                     ->label("Created at")
                     ->form([
                         Forms\Components\DatePicker::make(
                             "created_from"
-                        )->label(__("ui.created_from")),
+                        )->label(__("filament-subscriptions::ui.created_from")),
                         Forms\Components\DatePicker::make(
                             "created_until"
-                        )->label(__("ui.created_until")),
+                        )->label(
+                            __("filament-subscriptions::ui.created_until")
+                        ),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
                         return $query

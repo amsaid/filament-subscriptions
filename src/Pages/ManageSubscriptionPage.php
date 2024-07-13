@@ -58,12 +58,12 @@ class ManageSubscriptionPage extends Page
 
     public static function getNavigationGroup(): ?string
     {
-        return __("ui.manage_subscriptions");
+        return __("filament-subscriptions::ui.manage_subscriptions");
     }
 
     public static function getNavigationLabel(): string
     {
-        return __("ui.manage_subscriptions");
+        return __("filament-subscriptions::ui.manage_subscriptions");
     }
 
     public function getSubscribedPlan()
@@ -87,7 +87,9 @@ class ManageSubscriptionPage extends Page
 
             if ($this->isPaid || $this->isTrial) {
                 $this->message =
-                    __("ui.the_currently_active_subscription") .
+                    __(
+                        "filament-subscriptions::ui.the_currently_active_subscription"
+                    ) .
                     " " .
                     $this->name;
             } else {
@@ -112,7 +114,7 @@ class ManageSubscriptionPage extends Page
     {
         return [
             Action::make("upgrade")
-                ->label(__("ui.upgrade_plan"))
+                ->label(__("filament-subscriptions::ui.upgrade_plan"))
                 ->url(route("filament.admin.pages.plans-page"))
                 ->color("success")
                 ->icon("heroicon-o-rectangle-stack"),
