@@ -12,6 +12,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class FilamentSubscriptionServiceProvider extends PackageServiceProvider
 {
+<<<<<<< HEAD
     public function register(): void
     {
         $this->callAfterResolving(Factory::class, function (
@@ -27,6 +28,8 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
         });
     }
 
+=======
+>>>>>>> ec081a6 (fixes)
     public function configurePackage(Package $package): void
     {
         /*
@@ -54,5 +57,20 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
             ],
             'filament-subscriptions'
         );
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->callAfterResolving(Factory::class, function (
+            Factory $factory,
+            Container $container
+        ) {
+            $config = $container->make("config")->get("blade-heroicons", []);
+
+            $factory->add(
+                "icon",
+                array_merge(["path" => __DIR__ . "/../resources/svg"], $config)
+            );
+        });
     }
 }
