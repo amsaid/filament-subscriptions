@@ -14,27 +14,27 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
 {
     public function boot(): void
     {
-        parent::boot();
         if ($this->app->runningInConsole()) {
             $this->publishes(
                 [
                     __DIR__ . "/../resources/svg" => public_path(
-                        "vendor/blade-country-flags"
+                        "vendor/ecoleplus-subs-icon"
                     ),
                 ],
-                "blade-country-flags"
+                "ecoleplus-subs-icon"
             );
 
             $this->publishes(
                 [
                     __DIR__ .
-                    "/../config/blade-country-flags.php" => $this->app->configPath(
-                        "blade-country-flags.php"
+                    "/../config/ecoleplus-subs-icon.php" => $this->app->configPath(
+                        "ecoleplus-subs-icon.php"
                     ),
                 ],
-                "blade-country-flags-config"
+                "ecoleplus-subs-icon-config"
             );
         }
+        parent::boot();
     }
     public function configurePackage(Package $package): void
     {
