@@ -70,7 +70,7 @@ class FeatureResource extends Resource
                     TextInput::make("slug")
                         ->label(__("filament-subscriptions::ui.slug"))
                         ->required()
-                        ->disabled()
+                        //->disabled()
                         ->columnSpan([
                             "md" => 6,
                         ]),

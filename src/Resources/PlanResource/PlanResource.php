@@ -48,7 +48,7 @@ class PlanResource extends Resource
                     TextInput::make("slug")
                         ->label("Slug")
                         ->required()
-                        ->disabled()
+                        //->disabled()
                         ->columnSpan([
                             "md" => 6,
                         ]),
