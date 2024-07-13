@@ -49,6 +49,15 @@ php artisan vendor:publish --tag="filament-subscriptions-views"
 ```
 
 ## Usage
+```php
+use EcolePlus\FilamentSubscription\FilamentSubscriptionPlugin;
+
+...
+return $panel
+    ->plugins([
+        FilamentSubscriptionPlugin::make(),
+    ]);
+```
 
 ```php
 use EcolePlus\FilamentSubscription\Traits\PlanSubscriptions;
