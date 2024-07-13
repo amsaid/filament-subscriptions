@@ -44,20 +44,20 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
             $this->publishes(
                 [
                     __DIR__ . "/../resources/svg" => public_path(
-                        "vendor/ecoleplusicon"
+                        "vendor/ecoleplus-subs-icon"
                     ),
                 ],
-                "ecoleplusicon"
+                "ecoleplus-subs-icon"
             );
 
             $this->publishes(
                 [
                     __DIR__ .
-                    "/../config/ecoleplusicon.php" => $this->app->configPath(
-                        "ecoleplusicon.php"
+                    "/../config/ecoleplus-subs-icon.php" => $this->app->configPath(
+                        "ecoleplus-subs-icon.php"
                     ),
                 ],
-                "ecoleplusicon-config"
+                "ecoleplus-subs-icon-config"
             );
         }
     }
@@ -71,10 +71,12 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
             Factory $factory,
             Container $container
         ) {
-            $config = $container->make("config")->get("ecoleplusicon", []);
+            $config = $container
+                ->make("config")
+                ->get("ecoleplus-subs-icon", []);
 
             $factory->add(
-                "ecoleplusicon",
+                "ecoleplus-subs-icon",
                 array_merge(["path" => __DIR__ . "/../resources/svg"], $config)
             );
         });
@@ -83,8 +85,8 @@ class FilamentSubscriptionServiceProvider extends PackageServiceProvider
     private function registerConfig(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . "/../config/ecoleplusicon.php",
-            "ecoleplusicon"
+            __DIR__ . "/../config/ecoleplus-subs-icon.php",
+            "ecoleplus-subs-icon"
         );
     }
 }
